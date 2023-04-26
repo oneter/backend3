@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Задание 3 </title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container" style= "background-color: #fff;">
+			<div class="forma">
+                <h2 id="Форма">Форма</h2>
+                <form action="forma.php" method="POST" id="form" >
+                    <label for="name"> Имя: </label>
+                        <br />
+                        <input type="text" name="name" id="name" placeholder="Введите имя" required>
+                    <br />
+                    <label for="email"> Почта: </label>
+			<br />
+			<input type="email" name="email" id="email" placeholder="Введите вашу почту" required>
+			<br />
+			<label for="year"> Дата рождения: </label>
+			<select name="year" id="year" required>
+				<option value=""> Дата:</option>
+			</select>
+			<br />
+			<br />
+			<label> Пол: </label>
+			<label><input type="radio" checked="checked" name="sex" value="Мужской" required />М</label>
+			<label><input type="radio" name="sex" value="Женский" required/>Ж</label>
+						<br />
+			<label>	Кол-во конечностей: </label>
+						<br />
+						<label>
+							<input type="radio" checked="checked" name="legs" value="1" required  />1
+						</label>
+						<label>
+							<input type="radio" name="legs" value="2" required />2
+						</label>
+						<label>
+							<input type="radio" name="legs" value="3" required />3
+						</label>
+						<label>
+							<input type="radio" name="legs" value="4" required />4
+						</label>
+						<label>
+							<input type="radio" name="legs" value="5" required />5
+						</label>
+						<br />
+						<label>
+                           <label> Сверхспособности: </label>
+                            <br />
+							<select name="powers[]" id="powers" multiple="multiple" required>
+								<option value="Бессмертие">Бессмертие</option>
+								<option value="Прохождение сквозь стены">Прохождение сквозь стены</option>
+								<option value="Левитация">Левитация</option>
+							</select>
+						</label>
+						<br />
+						<label for="bio"> Биография: </label>
+							<br />
+							<textarea name="bio" id="bio"  required placeholder="Придумайте свою биографию..."></textarea>
+						<br />
+						<br />
+						<label>
+							С контрактом ознакомлен(а) <input type="checkbox" name="agree" value="yes" required />
+							</label>
+						<br />
+                        <div class="button">
+                            <input type="submit" value="Отправить" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+		<script>
+			const select = document.getElementById('year');
+			const currentYear = new Date().getFullYear();
+			for (let i = currentYear; i >= currentYear - 100; i--) {
+				const option = document.createElement('option');
+				option.value = i;
+				option.text = i;
+				select.add(option);
+			}
+		</script>
+        </body>
+        </html>

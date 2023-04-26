@@ -1,0 +1,25 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    year INT NOT NULL,
+    sex ENUM('Мужской', 'Женский') NOT NULL,
+    legs INT NOT NULL,
+    bio TEXT NOT NULL,
+    agree BOOLEAN NOT NULL
+);
+ 
+CREATE TABLE powers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    power_name VARCHAR(255) NOT NULL
+);
+ 
+CREATE TABLE user_powers (
+    user_id INT NOT NULL,
+    power_id INT NOT NULL,
+    PRIMARY KEY (user_id, power_id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (power_id) REFERENCES powers(id)
+);
+
+INSERT INTO powers (power_name) VALUES ('Бессмертие'), ('Прохождение сквозь стены'), ('Левитация');
